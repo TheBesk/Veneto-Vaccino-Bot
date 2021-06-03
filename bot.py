@@ -31,7 +31,19 @@ while errore:
  time.sleep(1)
  if browser.find_elements_by_css_selector(".alert"):
   browser.refresh()
+ #else:
+  #errore=False
+ sedi_tot=(browser.find_elements_by_class_name("btn-full"))
+ count=0
+ for i in sedi_tot:
+  if i.is_enabled()==True:
+   count+=1
+ 
+ if count==0: #confrontare con il numero di bottoni disabled
+  browser.refresh()
+  print("nessun posto libero")
  else:
+  print("Puoi prenotare il vaccino!")
   errore=False
 
  #os.system("python3 bot.py")
