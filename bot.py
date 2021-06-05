@@ -12,8 +12,8 @@ browser.get('https://vaccinicovid.regione.veneto.it/ulss'+sys.argv[1])
 
 cf='//*[@id="cod_fiscale"]'
 team='//*[@id="num_tessera"]'
-casella='/html/body/div/form/div[2]/div[3]/div[2]/input'
-bottone='/html/body/div/form/div[2]/div[5]/div[2]/button'
+casella='/html/body/div/form/div[2]/div[4]/div[2]/input'
+bottone='/html/body/div/form/div[2]/div[6]/div[2]/button'
 errmsg='/html/body/div/form/div[3]/div[1]'
 
 servizio2='/html/body/div/form/div[3]/button[2]'
@@ -42,7 +42,7 @@ while errore:
   if i.is_enabled()==True:
    count+=1
  
- if count==0:
+ if count==0: #confrontare con il numero di bottoni disabled
   browser.refresh()
   print("nessun posto libero")
  else:
