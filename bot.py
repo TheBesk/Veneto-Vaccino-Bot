@@ -16,6 +16,8 @@ casella='/html/body/div/form/div[2]/div[3]/div[2]/input'
 bottone='/html/body/div/form/div[2]/div[5]/div[2]/button'
 errmsg='/html/body/div/form/div[3]/div[1]'
 
+servizio2='/html/body/div/form/div[3]/button[2]'
+
 with open('informazioni.txt', 'r') as f:
  mycf=f.readline()
  myteam=f.readline()
@@ -33,13 +35,14 @@ while errore:
   browser.refresh()
  #else:
   #errore=False
+ browser.find_element_by_xpath(servizio2).click()
  sedi_tot=(browser.find_elements_by_class_name("btn-full"))
  count=0
  for i in sedi_tot:
   if i.is_enabled()==True:
    count+=1
  
- if count==0: #confrontare con il numero di bottoni disabled
+ if count==0:
   browser.refresh()
   print("nessun posto libero")
  else:
